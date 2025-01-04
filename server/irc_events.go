@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/eKonyv/eKonyv/core"
+	"github.com/manfromdownunder/eKonyv/core"
 )
 
 func (server *server) NewIrcEventHandler(client *Client) core.EventHandler {

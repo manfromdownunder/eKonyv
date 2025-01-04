@@ -2,7 +2,7 @@
 
 package desktop
 
-import "github.com/eKonyv/eKonyv/util"
+import "github.com/manfromdownunder/eKonyv/util"
 
 func StartWebView(url string, debug bool) {
 	util.OpenBrowser(url)

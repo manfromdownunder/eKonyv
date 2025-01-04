@@ -1,6 +1,6 @@
 # eKonyv Docker Image
 
-> See [Github](https://github.com/eKonyv/eKonyv) for more information.
+> See [Github](https://github.com/manfromdownunder/eKonyv) for more information.
 
 ## Usage
 

@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/eKonyv/eKonyv/cli"
+	"github.com/manfromdownunder/eKonyv/cli"
 	"github.com/spf13/cobra"
 )
 

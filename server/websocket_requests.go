@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/eKonyv/eKonyv/core"
-	"github.com/eKonyv/eKonyv/util"
+	"github.com/manfromdownunder/eKonyv/core"
+	"github.com/manfromdownunder/eKonyv/util"
 )
 
 // RequestHandler defines a generic handle() method that is called when a specific request type is made

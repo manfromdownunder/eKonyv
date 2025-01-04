@@ -15,7 +15,7 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/google/uuid"
 	"github.com/rs/cors"
-	"github.com/eKonyv/eKonyv/irc" // Ensure IRC package is imported
+	"github.com/manfromdownunder/eKonyv/irc" // Ensure IRC package is imported
 )
 
 // Track active IRC connections by username

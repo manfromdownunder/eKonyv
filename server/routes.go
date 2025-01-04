@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/eKonyv/eKonyv/irc"  // Import the IRC package
 	"io/fs"
 	"log"
 	"net/http"
@@ -16,6 +15,8 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/manfromdownunder/eKonyv/irc" // Import the IRC package
 
 	"github.com/go-chi/chi/v5"
 	"github.com/google/uuid"

@@ -5,8 +5,8 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/eKonyv/eKonyv/server"
-	"github.com/eKonyv/eKonyv/util"
+	"github.com/manfromdownunder/eKonyv/server"
+	"github.com/manfromdownunder/eKonyv/util"
 
 	"github.com/spf13/cobra"
 )

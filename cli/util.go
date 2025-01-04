@@ -13,9 +13,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/eKonyv/eKonyv/core"
-	"github.com/eKonyv/eKonyv/irc"
-	"github.com/eKonyv/eKonyv/util"
+	"github.com/manfromdownunder/eKonyv/core"
+	"github.com/manfromdownunder/eKonyv/irc"
+	"github.com/manfromdownunder/eKonyv/util"
 )
 
 var servers []string

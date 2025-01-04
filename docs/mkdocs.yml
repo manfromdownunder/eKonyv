@@ -1,7 +1,7 @@
 site_name: eKonyv
 site_url: https://eKonyv.github.io/eKonyv
 repo_name: eKonyv
-repo_url: https://github.com/eKonyv/eKonyv
+repo_url: https://github.com/manfromdownunder/eKonyv
 
 markdown_extensions:
   - attr_list

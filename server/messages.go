@@ -6,7 +6,7 @@ import (
 	"math"
 	"path"
 
-	"github.com/eKonyv/eKonyv/core"
+	"github.com/manfromdownunder/eKonyv/core"
 )
 
 //go:generate stringer -type=MessageType

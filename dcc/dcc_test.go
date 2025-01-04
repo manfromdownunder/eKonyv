@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"testing"
 
-	"github.com/eKonyv/eKonyv/mock"
+	"github.com/manfromdownunder/eKonyv/mock"
 )
 
 // TestStringParsing makes sure that data is properly extracted from the DCC

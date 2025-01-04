@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/eKonyv/eKonyv/desktop"
-	"github.com/eKonyv/eKonyv/server"
+	"github.com/manfromdownunder/eKonyv/desktop"
+	"github.com/manfromdownunder/eKonyv/server"
 	"github.com/spf13/cobra"
 )
 

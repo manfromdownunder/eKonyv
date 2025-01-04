@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/eKonyv/eKonyv/core"
-	"github.com/eKonyv/eKonyv/dcc"
+	"github.com/manfromdownunder/eKonyv/core"
+	"github.com/manfromdownunder/eKonyv/dcc"
 	"github.com/schollz/progressbar/v3"
 )
 

@@ -6,7 +6,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/eKonyv/eKonyv/irc"
+	"github.com/manfromdownunder/eKonyv/irc"
 )
 
 type event int

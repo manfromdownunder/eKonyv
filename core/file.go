@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/eKonyv/eKonyv/dcc"
-	"github.com/eKonyv/eKonyv/util"
+	"github.com/manfromdownunder/eKonyv/dcc"
+	"github.com/manfromdownunder/eKonyv/util"
 )
 
 func DownloadExtractDCCString(baseDir, dccStr string, progress io.Writer) (string, error) {

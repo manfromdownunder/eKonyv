@@ -1,6 +1,6 @@
-module github.com/eKonyv/eKonyv
+//module github.com/manfromdownunder/eKonyv
 
-go 1.19
+go 1.23
 
 require (
 	github.com/dsnet/compress v0.0.2-0.20210315054119-f66993602bf5 // indirect
@@ -31,7 +31,6 @@ require (
 require (
 	git.wow.st/gmp/jni v0.0.0-20210610011705-34026c7e22d0 // indirect
 	github.com/andybalholm/brotli v1.0.4 // indirect
-	github.com/evan-buss/openbooks v0.0.0-20230112014154-c9273ef98a46 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/inkeliz/w32 v1.0.2 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect

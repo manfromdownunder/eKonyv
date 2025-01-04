@@ -24,7 +24,7 @@ If you'd prefer to use eKonyv from your terminal, check out [CLI Mode](./configu
 
 ### Executable
 
-1. Download the latest release for your platform from the [releases page](https://github.com/eKonyv/eKonyv/releases).
+1. Download the latest release for your platform from the [releases page](https://github.com/manfromdownunder/eKonyv/releases).
 2. Execute it from your terminal in Server (`./eKonyv server`) or CLI (`./eKonyv cli`) mode.
 
    - Linux users may have to run `chmod +x [binary name]` to make it executable

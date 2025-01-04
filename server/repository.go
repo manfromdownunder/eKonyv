@@ -1,6 +1,6 @@
 package server
 
-import "github.com/eKonyv/eKonyv/core"
+import "github.com/manfromdownunder/eKonyv/core"
 
 type Repository struct {
 	servers core.IrcServers

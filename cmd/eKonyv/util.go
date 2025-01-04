@@ -4,7 +4,7 @@ import (
 	"path"
 	"time"
 
-	"github.com/eKonyv/eKonyv/server"
+	"github.com/manfromdownunder/eKonyv/server"
 )
 
 // Update a server config struct from globalFlags
