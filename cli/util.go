@@ -13,9 +13,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/evan-buss/openbooks/core"
-	"github.com/evan-buss/openbooks/irc"
-	"github.com/evan-buss/openbooks/util"
+	"github.com/eKonyv/eKonyv/core"
+	"github.com/eKonyv/eKonyv/irc"
+	"github.com/eKonyv/eKonyv/util"
 )
 
 var servers []string
@@ -80,7 +80,7 @@ func warnIfServerOffline(bookLine string) {
 }
 
 func getLastSearchTime() time.Time {
-	timestampFilePath := filepath.Join(os.TempDir(), ".openbooks")
+	timestampFilePath := filepath.Join(os.TempDir(), ".eKonyv")
 	fileInfo, err := os.Stat(timestampFilePath)
 
 	if errors.Is(err, os.ErrNotExist) {
@@ -91,7 +91,7 @@ func getLastSearchTime() time.Time {
 }
 
 func setLastSearchTime() {
-	timestampFilePath := filepath.Join(os.TempDir(), ".openbooks")
+	timestampFilePath := filepath.Join(os.TempDir(), ".eKonyv")
 	_, err := os.Stat(timestampFilePath)
 
 	if errors.Is(err, os.ErrNotExist) {

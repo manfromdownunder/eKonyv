@@ -5,7 +5,7 @@ import {
   MiddlewareAPI,
   PayloadAction
 } from "@reduxjs/toolkit";
-import { openbooksApi } from "./api";
+import { eKonyvApi } from "./api";
 import { deleteHistoryItem } from "./historySlice";
 import {
   ConnectionResponse,
@@ -94,7 +94,7 @@ const route = (dispatch: AppDispatch, msg: MessageEvent<any>): void => {
         return notification;
       case MessageType.DOWNLOAD:
         downloadFile((response as DownloadResponse)?.downloadPath);
-        dispatch(openbooksApi.util.invalidateTags(["books"]));
+        dispatch(eKonyvApi.util.invalidateTags(["books"]));
         dispatch(removeInFlightDownload());
         return notification;
       case MessageType.RATELIMIT:

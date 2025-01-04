@@ -1,6 +1,6 @@
 ### Desktop App
 
-Run or build OpenBooks with experimental webview support:
+Run or build eKonyv with experimental webview support:
 
 ```shell
 #Run

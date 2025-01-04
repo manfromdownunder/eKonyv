@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/evan-buss/openbooks/desktop"
-	"github.com/evan-buss/openbooks/server"
+	"github.com/eKonyv/eKonyv/desktop"
+	"github.com/eKonyv/eKonyv/server"
 	"github.com/spf13/cobra"
 )
 
@@ -41,7 +41,7 @@ func init() {
 	desktopCmd.PersistentFlags().BoolVar(&globalFlags.EnableTLS, "tls", true, "Connect to server using TLS.")
 	desktopCmd.PersistentFlags().BoolVarP(&globalFlags.Log, "log", "l", false, "Save raw IRC logs for each client connection.")
 	desktopCmd.PersistentFlags().StringVar(&globalFlags.SearchBot, "searchbot", "search", "The IRC bot that handles search queries. Try 'searchook' if 'search' is down.")
-	desktopCmd.PersistentFlags().StringVarP(&globalFlags.UserAgent, "useragent", "u", fmt.Sprintf("OpenBooks %s", ircVersion), "UserAgent / Version Reported to IRC Server.")
+	desktopCmd.PersistentFlags().StringVarP(&globalFlags.UserAgent, "useragent", "u", fmt.Sprintf("eKonyv %s", ircVersion), "UserAgent / Version Reported to IRC Server.")
 
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
@@ -55,9 +55,9 @@ func init() {
 }
 
 var desktopCmd = &cobra.Command{
-	Use:   "openbooks",
+	Use:   "eKonyv",
 	Short: "Quickly and easily download eBooks from IRCHighway.",
-	Long:  "Runs OpenBooks in desktop mode. This allows you to run OpenBooks like a regular desktop application. This functionality utilizes your OS's native browser renderer and as such may not work on certain operating systems.",
+	Long:  "Runs eKonyv in desktop mode. This allows you to run eKonyv like a regular desktop application. This functionality utilizes your OS's native browser renderer and as such may not work on certain operating systems.",
 	PreRun: func(cmd *cobra.Command, args []string) {
 		bindGlobalServerFlags(&desktopConfig)
 		rateLimit, _ := cmd.Flags().GetInt("rate-limit")

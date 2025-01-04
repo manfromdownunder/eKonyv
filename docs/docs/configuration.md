@@ -16,13 +16,13 @@ These options apply to both Server and CLI mode.
 | `--searchbot`    | `search`                  | The IRC search operator to use. Try `searchook` if `search` is down. |
 | `--server`/`-s`  | `irc.irchighway.net:6697` | The IRC `server:port` to connect to.                                 |
 | `--tls`          | `true`                    | Connect to IRC server over TLS.                                      |
-| `--useragent/-u` | `OpenBooks v4.5.0`        | UserAgent / Version Reported to IRC Server.                          |
+| `--useragent/-u` | `eKonyv v4.5.0`        | UserAgent / Version Reported to IRC Server.                          |
 
 ## Server Mode Options
 
 | Flag                     | Default     | Description                                               |
 |--------------------------|-------------|-----------------------------------------------------------|
-| `--basepath`             | `/`         | Web UI Path. Must have trailing `/`. (Ex. `/openbooks/`)  |
+| `--basepath`             | `/`         | Web UI Path. Must have trailing `/`. (Ex. `/eKonyv/`)  |
 | `--browser`/`-b`         | `false`     | Open the browser on startup.                              |
 | `--dir`/`-d`             | `/temp`[^1] | Directory where search results and eBooks are saved.      |
 | `--no-browser-downloads` | `false`     | Don't send files to browser but save them to disk.        |

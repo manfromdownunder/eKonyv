@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/evan-buss/openbooks/mock"
+	"github.com/eKonyv/eKonyv/mock"
 )
 
 func main() {

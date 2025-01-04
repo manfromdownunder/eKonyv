@@ -15,7 +15,12 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/google/uuid"
 	"github.com/rs/cors"
+	"github.com/eKonyv/eKonyv/irc" // Ensure IRC package is imported
 )
+
+// Track active IRC connections by username
+var ircConnections = make(map[string]*irc.Conn) // Global map to store IRC connections
+var mu sync.Mutex                             // Mutex to protect access to ircConnections
 
 type server struct {
 	// Shared app configuration
@@ -94,7 +99,7 @@ func Start(config Config) {
 	router.Mount(config.Basepath, routes)
 
 	server.log.Printf("Base Path: %s\n", config.Basepath)
-	server.log.Printf("OpenBooks is listening on port %v", config.Port)
+	server.log.Printf("eKonyv is listening on port %v", config.Port)
 	server.log.Printf("Download Directory: %s\n", config.DownloadDir)
 	server.log.Printf("Open http://localhost:%v%s in your browser.", config.Port, config.Basepath)
 	server.log.Fatal(http.ListenAndServe(":"+config.Port, router))
@@ -144,4 +149,27 @@ func createBooksDirectory(config Config) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+// Function to get or create a new IRC connection
+func getIRCConnection(username string, enableTLS bool, serverAddress string) (*irc.Conn, error) {
+	mu.Lock()
+	defer mu.Unlock()
+
+	// If the connection already exists, return it
+	if existingConn, exists := ircConnections[username]; exists {
+		return existingConn, nil
+	}
+
+	// If no existing connection, create a new one
+	newConn := irc.New(username, username)
+	err := newConn.Connect(serverAddress, enableTLS)
+	if err != nil {
+		return nil, err
+	}
+
+	// Store the new connection
+	ircConnections[username] = newConn
+
+	return newConn, nil
 }

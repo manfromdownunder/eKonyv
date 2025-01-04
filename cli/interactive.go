@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/evan-buss/openbooks/core"
+	"github.com/eKonyv/eKonyv/core"
 )
 
 func terminalMenu(config Config) {

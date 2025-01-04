@@ -1,6 +1,6 @@
 # Getting Started
 
-OpenBooks makes use of the [Task](https://taskfile.dev/) build system which provides a cross platform and simple alternative to GNU Make.
+eKonyv makes use of the [Task](https://taskfile.dev/) build system which provides a cross platform and simple alternative to GNU Make.
 
 If making use of the [devcontainer](./dev-container.md), Task will automatically be set up for you.
 Otherwise follow the install instructions on the Task website. The rest of the guide assumes you have Task installed.
@@ -23,13 +23,13 @@ Run the following commands in separate terminals.
 
 `task dev:server`
 
-: Compiles and runs OpenBooks in Server mode. Connects to the Mock IRC server.
+: Compiles and runs eKonyv in Server mode. Connects to the Mock IRC server.
 
 ## CLI Mode Development
 
 `task dev:cli`
 
-: Compiles and runs OpenBooks in CLI mode. Connects to the Mock IRC server.
+: Compiles and runs eKonyv in CLI mode. Connects to the Mock IRC server.
 
 <!-- ## Why / How
 

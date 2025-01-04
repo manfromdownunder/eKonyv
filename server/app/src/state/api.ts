@@ -12,7 +12,7 @@ export interface Book {
   time: string;
 }
 
-export const openbooksApi = createApi({
+export const eKonyvApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: getApiURL().href,
     credentials: "include",
@@ -41,4 +41,4 @@ export const openbooksApi = createApi({
 });
 
 export const { useGetServersQuery, useGetBooksQuery, useDeleteBookMutation } =
-  openbooksApi;
+  eKonyvApi;

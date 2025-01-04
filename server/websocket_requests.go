@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/evan-buss/openbooks/core"
-	"github.com/evan-buss/openbooks/util"
+	"github.com/eKonyv/eKonyv/core"
+	"github.com/eKonyv/eKonyv/util"
 )
 
 // RequestHandler defines a generic handle() method that is called when a specific request type is made

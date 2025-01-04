@@ -32,27 +32,27 @@ tasks:
       - go run .
 
   cli:
-    desc: Run OpenBooks in CLI Mode.
-    dir: cmd/openbooks
+    desc: Run eKonyv in CLI Mode.
+    dir: cmd/eKonyv
     cmds:
       - go build
-      - ./openbooks cli --tls=false --server localhost:6667
+      - ./eKonyv cli --tls=false --server localhost:6667
 
   server:
-    desc: Run OpenBooks in Server Mode.
-    dir: cmd/openbooks
+    desc: Run eKonyv in Server Mode.
+    dir: cmd/eKonyv
     cmds:
       - go build
-      - ./openbooks server --tls=false --server localhost:6667
+      - ./eKonyv server --tls=false --server localhost:6667
 
   client:
-    desc: Run OpenBooks React Client Application in Development Mode.
+    desc: Run eKonyv React Client Application in Development Mode.
     dir: server/app
     cmds:
       - npm run dev
 
   desktop:
-    desc: Run OpenBooks in the experimental desktop mode with a WebView GUI.
-    dir: cmd/openbooks
+    desc: Run eKonyv in the experimental desktop mode with a WebView GUI.
+    dir: cmd/eKonyv
     cmds:
       - go run -tags webview

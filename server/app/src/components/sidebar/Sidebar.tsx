@@ -69,11 +69,11 @@ export default function Sidebar() {
       <Navbar.Section p="sm">
         <Group position="apart">
           <Text weight="bold" size="lg">
-            OpenBooks
+            eKonyv
           </Text>
           <Group>
             <Tooltip
-              label={`OpenBooks server ${
+              label={`eKonyv server ${
                 connected ? "connected" : "disconnected"
               }.`}>
               <ActionIcon

@@ -6,7 +6,7 @@ import (
 	"math"
 	"path"
 
-	"github.com/evan-buss/openbooks/core"
+	"github.com/eKonyv/eKonyv/core"
 )
 
 //go:generate stringer -type=MessageType

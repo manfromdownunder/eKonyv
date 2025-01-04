@@ -3,7 +3,7 @@ import { setupListeners } from "@reduxjs/toolkit/query/react";
 import { enableMapSet } from "immer";
 import throttle from "lodash/throttle";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { openbooksApi } from "./api";
+import { eKonyvApi } from "./api";
 import historyReducer from "./historySlice";
 import notificationReducer from "./notificationSlice";
 import { websocketConn } from "./socketMiddleware";
@@ -17,12 +17,12 @@ export const store = configureStore({
     state: stateReducer,
     history: historyReducer,
     notifications: notificationReducer,
-    [openbooksApi.reducerPath]: openbooksApi.reducer
+    [eKonyvApi.reducerPath]: eKonyvApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       websocketConn(getWebsocketURL().href),
-      openbooksApi.middleware
+      eKonyvApi.middleware
     ),
 });
 

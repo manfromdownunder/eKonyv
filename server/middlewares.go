@@ -18,7 +18,7 @@ const (
 
 func (server *server) requireUser(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		cookie, err := r.Cookie("OpenBooks")
+		cookie, err := r.Cookie("eKonyv")
 		if err != nil {
 			server.log.Println(err)
 			w.WriteHeader(http.StatusUnauthorized)

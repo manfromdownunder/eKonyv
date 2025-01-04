@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/evan-buss/openbooks/irc"
+	"github.com/eKonyv/eKonyv/irc"
 	"github.com/google/uuid"
 
 	"github.com/gorilla/websocket"

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/evan-buss/openbooks/core"
-	"github.com/evan-buss/openbooks/irc"
+	"github.com/eKonyv/eKonyv/core"
+	"github.com/eKonyv/eKonyv/irc"
 )
 
 type Config struct {
@@ -20,10 +20,10 @@ type Config struct {
 	irc       *irc.Conn
 }
 
-// StartInteractive instantiates the OpenBooks CLI interface
+// StartInteractive instantiates the eKonyv CLI interface
 func StartInteractive(config Config) {
 	fmt.Println("=======================================")
-	fmt.Println("          Welcome to OpenBooks         ")
+	fmt.Println("          Welcome to eKonyv         ")
 	fmt.Println("=======================================")
 
 	instantiate(&config)

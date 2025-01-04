@@ -11,20 +11,20 @@ tasks:
       - npm run build
 
   build:
-    desc: Build OpenBooks binaries for all supported platforms.
+    desc: Build eKonyv binaries for all supported platforms.
     deps:
       - npm-build
-    dir: cmd/openbooks
+    dir: cmd/eKonyv
     cmds:
       - go get
-      - env CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o ./../../build/openbooks.exe
-      - env CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o ./../../build/openbooks_mac
-      - env CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o ./../../build/openbooks_mac_arm
-      - env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./../../build/openbooks_linux
-      - env CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o ./../../build/openbooks_linux_arm
+      - env CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o ./../../build/eKonyv.exe
+      - env CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o ./../../build/eKonyv_mac
+      - env CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o ./../../build/eKonyv_mac_arm
+      - env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./../../build/eKonyv_linux
+      - env CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o ./../../build/eKonyv_linux_arm
 
   build-desktop:
-    desc: Build OpenBooks in the experimental desktop mode with a WebView GUI.
-    dir: cmd/openbooks
+    desc: Build eKonyv in the experimental desktop mode with a WebView GUI.
+    dir: cmd/eKonyv
     cmds:
       - go build -tags webviews

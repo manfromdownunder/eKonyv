@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/openbooks.iml" filepath="$PROJECT_DIR$/.idea/openbooks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/eKonyv.iml" filepath="$PROJECT_DIR$/.idea/eKonyv.iml" />
     </modules>
   </component>
 </project>

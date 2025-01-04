@@ -1,7 +1,7 @@
 # start persist
 mock_server
-openbooks
-!openbooks/
+eKonyv
+!eKonyv/
 *.DS_Store
 **/dist
 .task/
@@ -21,7 +21,7 @@ docs/site/
 *.so
 *.dylib
 
-openbooks.exe
+eKonyv.exe
 irc_log.txt
 build/
 

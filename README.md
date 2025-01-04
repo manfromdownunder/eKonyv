@@ -1,10 +1,10 @@
-# eKonyv - fork of eKonyv
+# eKonyv - fork of OpenBooks
 
-eKonyv does not appear to be maintained any longer.  Forked the project to keep adding functionality.
+OpenBooks does not appear to be maintained any longer.  Forked the project to keep adding functionality.
 
 > NOTE: Going forward only the latest release will be supported. If you encounter any issues, be sure you are using the latest version.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/evanbuss/eKonyv.svg)](https://hub.docker.com/r/evanbuss/eKonyv/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/manfromdownunder/eKonyv.svg)](https://hub.docker.com/r/manfromdownunder/eKonyv/)
 
 eKonyv allows you to download ebooks from irc.irchighway.net quickly and easily.
 

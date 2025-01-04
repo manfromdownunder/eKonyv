@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/evan-buss/openbooks/irc"
+	"github.com/eKonyv/eKonyv/irc"  // Import the IRC package
 	"io/fs"
 	"log"
 	"net/http"
@@ -23,6 +23,9 @@ import (
 
 //go:embed app/dist
 var reactClient embed.FS
+
+// Store IRC connections mapped to usernames
+var ircConnections = make(map[string]*irc.Conn) // Map for tracking IRC connections per username
 
 func (server *server) registerRoutes() *chi.Mux {
 	router := chi.NewRouter()
@@ -77,11 +80,31 @@ func (server *server) serveWs() http.HandlerFunc {
 			return
 		}
 
+		// Get or create IRC connection for the username
+		username := fmt.Sprintf("user-%s", userId.String()) // Maintain the same username across connections
+
+		// Check if there's already an existing IRC connection for the username
+		var ircConn *irc.Conn
+		if existingConn, exists := ircConnections[username]; exists {
+			ircConn = existingConn
+		} else {
+			// If no existing connection, create a new IRC connection
+			ircConn = irc.New(username, server.config.UserAgent)
+			err = ircConn.Connect(server.config.Server, true) // true for TLS
+			if err != nil {
+				server.log.Println("Error connecting to IRC:", err)
+				return
+			}
+
+			// Store the IRC connection in the map
+			ircConnections[username] = ircConn
+		}
+
 		client := &Client{
 			conn: conn,
 			send: make(chan interface{}, 128),
 			uuid: userId,
-			irc:  irc.New(server.config.UserName, server.config.UserAgent),
+			irc:  ircConn, // Use the existing or newly created IRC connection
 			log:  log.New(os.Stdout, fmt.Sprintf("CLIENT (%s): ", server.config.UserName), log.LstdFlags|log.Lmsgprefix),
 			ctx:  context.Background(),
 		}
@@ -89,6 +112,7 @@ func (server *server) serveWs() http.HandlerFunc {
 		server.log.Printf("Client connected from %s\n", conn.RemoteAddr().String())
 		client.log.Println("New client created.")
 
+		// Register the client in the server
 		server.register <- client
 
 		go server.writePump(client)
@@ -97,28 +121,29 @@ func (server *server) serveWs() http.HandlerFunc {
 }
 
 func (server *server) staticFilesHandler(assetPath string) http.Handler {
-	// update the embedded file system's tree so that index.html is at the root
+	// Update the embedded file system's tree so that index.html is at the root
 	app, err := fs.Sub(reactClient, assetPath)
 	if err != nil {
 		server.log.Println(err)
 	}
 
-	// strip the predefined base path and serve the static file
+	// Strip the predefined base path and serve the static file
 	return http.StripPrefix(server.config.Basepath, http.FileServer(http.FS(app)))
 }
 
 func (server *server) statsHandler() http.HandlerFunc {
-	type statsReponse struct {
+	type statsResponse struct {
 		UUID string `json:"uuid"`
 		IP   string `json:"ip"`
 		Name string `json:"name"`
 	}
 
 	return func(w http.ResponseWriter, r *http.Request) {
-		result := make([]statsReponse, 0, len(server.clients))
+		result := make([]statsResponse, 0, len(server.clients))
 
+		// Gather the stats for all connected clients
 		for _, client := range server.clients {
-			details := statsReponse{
+			details := statsResponse{
 				UUID: client.uuid.String(),
 				Name: client.irc.Username,
 				IP:   client.conn.RemoteAddr().String(),
@@ -127,12 +152,14 @@ func (server *server) statsHandler() http.HandlerFunc {
 			result = append(result, details)
 		}
 
+		// Send the client stats as a JSON response
 		json.NewEncoder(w).Encode(result)
 	}
 }
 
 func (server *server) serverListHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		// Send the list of IRC servers
 		json.NewEncoder(w).Encode(server.repository.servers)
 	}
 }
@@ -150,6 +177,7 @@ func (server *server) getAllBooksHandler() http.HandlerFunc {
 			return
 		}
 
+		// Fetch and list all the books in the library
 		libraryDir := filepath.Join(server.config.DownloadDir, "books")
 		books, err := os.ReadDir(libraryDir)
 		if err != nil {
@@ -176,6 +204,7 @@ func (server *server) getAllBooksHandler() http.HandlerFunc {
 			output = append(output, dl)
 		}
 
+		// Send the list of books as a JSON response
 		w.Header().Add("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(output)
 	}
@@ -186,8 +215,10 @@ func (server *server) getBookHandler() http.HandlerFunc {
 		_, fileName := path.Split(r.URL.Path)
 		bookPath := filepath.Join(server.config.DownloadDir, "books", fileName)
 
+		// Serve the requested book file
 		http.ServeFile(w, r, bookPath)
 
+		// Optionally remove the file if Persist is not enabled
 		if !server.config.Persist {
 			err := os.Remove(bookPath)
 			if err != nil {
@@ -205,6 +236,7 @@ func (server *server) deleteBooksHandler() http.HandlerFunc {
 			w.WriteHeader(http.StatusInternalServerError)
 		}
 
+		// Delete the specified book from the library
 		err = os.Remove(filepath.Join(server.config.DownloadDir, "books", fileName))
 		if err != nil {
 			server.log.Printf("Error deleting book file: %s\n", err)

@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/evan-buss/openbooks/cli"
+	"github.com/eKonyv/eKonyv/cli"
 	"github.com/spf13/cobra"
 )
 
@@ -28,7 +28,7 @@ func init() {
 
 var cliCmd = &cobra.Command{
 	Use:   "cli",
-	Short: "Run openbooks from the terminal in interactive CLI mode.",
+	Short: "Run eKonyv from the terminal in interactive CLI mode.",
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		cliConfig.Version = globalFlags.UserAgent
 		cliConfig.UserName = globalFlags.UserName
@@ -49,7 +49,7 @@ var cliCmd = &cobra.Command{
 var downloadCmd = &cobra.Command{
 	Use:     "download [flags] identifier",
 	Short:   "Downloads a single file and exits.",
-	Example: `openbooks cli download '!Oatmeal - F. Scott Fitzgerald - The Great Gatsby.epub'`,
+	Example: `eKonyv cli download '!Oatmeal - F. Scott Fitzgerald - The Great Gatsby.epub'`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		err := cobra.ExactArgs(1)(cmd, args)
 		if err != nil {

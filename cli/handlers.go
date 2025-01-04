@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/evan-buss/openbooks/core"
-	"github.com/evan-buss/openbooks/dcc"
+	"github.com/eKonyv/eKonyv/core"
+	"github.com/eKonyv/eKonyv/dcc"
 	"github.com/schollz/progressbar/v3"
 )
 

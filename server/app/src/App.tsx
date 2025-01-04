@@ -13,7 +13,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import SearchPage from "./pages/SearchPage";
 import { useAppDispatch, useAppSelector } from "./state/store";
 
-const emotionCache = createEmotionCache({ key: "openbooks" });
+const emotionCache = createEmotionCache({ key: "eKonyv" });
 
 const useStyles = createStyles(() => ({
   burger: {

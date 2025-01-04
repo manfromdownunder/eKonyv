@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/evan-buss/openbooks/core"
+	"github.com/eKonyv/eKonyv/core"
 )
 
 func (server *server) NewIrcEventHandler(client *Client) core.EventHandler {

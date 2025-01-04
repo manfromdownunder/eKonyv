@@ -5,19 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch OpenBooks Server",
+      "name": "Launch eKonyv Server",
       "type": "go",
       "request": "launch",
       "mode": "debug",
-      "program": "cmd/openbooks",
+      "program": "cmd/eKonyv",
       "args": ["server", "--log", "--server", "localhost", "--persist"]
     },
     {
-      "name": "Launch OpenBooks CLI",
+      "name": "Launch eKonyv CLI",
       "type": "go",
       "request": "launch",
       "mode": "debug",
-      "program": "cmd/openbooks",
+      "program": "cmd/eKonyv",
       "args": ["cli", "download", "--server", "localhost", "!test"]
     }
   ]
