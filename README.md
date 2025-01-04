@@ -1,14 +1,16 @@
-# openbooks
+# eKonyv - fork of eKonyv
+
+eKonyv does not appear to be maintained any longer.  Forked the project to keep adding functionality.
 
 > NOTE: Going forward only the latest release will be supported. If you encounter any issues, be sure you are using the latest version.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/evanbuss/openbooks.svg)](https://hub.docker.com/r/evanbuss/openbooks/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/evanbuss/eKonyv.svg)](https://hub.docker.com/r/evanbuss/eKonyv/)
 
-Openbooks allows you to download ebooks from irc.irchighway.net quickly and easily.
+eKonyv allows you to download ebooks from irc.irchighway.net quickly and easily.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./.github/home_v3_dark.png">
-  <img alt="openbooks screenshot" src="./.github/home_v3.png">
+  <img alt="eKonyv screenshot" src="./.github/home_v3.png">
 </picture>
 
 
@@ -16,32 +18,32 @@ Openbooks allows you to download ebooks from irc.irchighway.net quickly and easi
 
 ### Binary
 
-1. Download the latest release for your platform from the [releases page](https://github.com/evan-buss/openbooks/releases).
+1. Download the latest release for your platform from the [releases page](https://github.com/manfromdownunder/eKonyv/releases).
 2. Run the binary
    - Linux users may have to run `chmod +x [binary name]` to make it executable
-3. `./openbooks --help`
+3. `./eKonyv --help`
    - This will display all possible configuration values and introduce the two modes; CLI or Server.
 
 ### Docker
 
 - Basic config
-  - `docker run -p 8080:80 evanbuss/openbooks`
+  - `docker run -p 8080:80 manfromdownunder/eKonyv`
 - Config to persist all eBook files to disk
-  - `docker run -p 8080:80 -v /home/evan/Downloads/openbooks:/books evanbuss/openbooks --persist`
+  - `docker run -p 8080:80 -v /home/user/Downloads/eKonyv:/books manfromdownunder/eKonyv --persist`
 
 ### Setting the Base Path
 
-OpenBooks server doesn't have to be hosted at the root of your webserver. The basepath value allows you to host it behind a reverse proxy. The base path value must have opening and closing forward slashes (default "/").
+eKonyv server doesn't have to be hosted at the root of your webserver. The basepath value allows you to host it behind a reverse proxy. The base path value must have opening and closing forward slashes (default "/").
 
 - Docker
-  - `docker run -p 8080:80 -e BASE_PATH=/openbooks/ evanbuss/openbooks`
+  - `docker run -p 8080:80 -e BASE_PATH=/eKonyv/ manfromdownunder/eKonyv`
 - Binary
-  - `./openbooks server --basepath /openbooks/`
+  - `./eKonyv server --basepath /eKonyv/`
 
 ## Usage
 
 For a complete list of features use the `--help` flags on all subcommands.
-For example `openbooks cli --help or openbooks cli download --help`. There are
+For example `eKonyv cli --help or eKonyv cli download --help`. There are
 two modes; Server or CLI. In CLI mode you interact and download books through
 a terminal interface. In server mode the application runs as a web application
 that you can visit in your browser.
@@ -74,15 +76,15 @@ Double clicking the executable will open the UI in your browser. In the future i
   cd cmd/mock_server
   go run .
   # Another Terminal
-  cd cmd/openbooks
+  cd cmd/eKonyv
   go run . server --server localhost --log
   ```
 
 ### Desktop App
-Compile OpenBooks with experimental webview support:
+Compile eKonyv with experimental webview support:
 
 ``` shell
-cd cmd/openbooks
+cd cmd/eKonyv
 go build -tags webview
 ```
 
